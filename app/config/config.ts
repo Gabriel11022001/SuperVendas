@@ -4,7 +4,6 @@ const config: Config = {
 
   ambiente: Ambiente.dev,
   cliente: "Cliente de teste",
-  logo: "",
   urllocal: "",
   urlHomol: "",
   urlTeste: "",
@@ -13,11 +12,11 @@ const config: Config = {
   cores: [
     {
       nomeCor: "principal",
-      cor: ""
+      cor: "#e15f41"
     },
     {
       nomeCor: "secundaria",
-      cor: ""
+      cor: "#e77f67"
     }
   ]
 

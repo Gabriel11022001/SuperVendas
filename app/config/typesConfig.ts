@@ -23,7 +23,6 @@ export type Config = {
   urlTeste: string;
   urlHomol: string;
   urlProducao: string;
-  logo: string;
   versaoApp: string;
 
 }

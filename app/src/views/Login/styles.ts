@@ -21,17 +21,21 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 20,
     marginBottom: 10,
-    fontSize: 16
+    fontSize: 16,
+    marginStart: "5%"
   },
   campo: {
-    width: "100%",
+    width: "90%",
     height: 60,
     padding: 10,
     fontSize: 16,
     backgroundColor: "#fff",
     borderRadius: 12,
     borderWidth: 1,
-    borderStyle: "solid"
+    borderStyle: "solid",
+    marginStart: "5%",
+    marginEnd: "5%",
+    elevation: 5
   },
   campoComErro: {
     color: "red",
@@ -42,14 +46,16 @@ const styles = StyleSheet.create({
     color: config.cores.find(cor => cor.nomeCor === "principal")?.cor,
   },
   botaoLogin: {
-    width: "100%",
+    width: "90%",
     padding: 15,
     borderRadius: 20,
     elevation: 5,
     marginBottom: 100,
     marginTop: 30,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    marginStart: "5%",
+    marginEnd: "5%"
   },
   botaoLoginHabilitado: {
     backgroundColor: config.cores.find(cor => cor.nomeCor === "principal")?.cor
@@ -66,7 +72,8 @@ const styles = StyleSheet.create({
   txtErroCampo: {
     color: "red",
     fontSize: 16,
-    marginTop: 6
+    marginTop: 6,
+    marginStart: "5%"
   },
   containerRecuperarSenha: {
     flexDirection: "row",
@@ -76,7 +83,8 @@ const styles = StyleSheet.create({
   },
   btnEsqueciSenha: {
     flexDirection: "row",
-    alignItems: "flex-end"
+    alignItems: "flex-end",
+    marginEnd: "5%"
   },
   txtEsqueciSenha: {
     color: config.cores.find(cor => cor.nomeCor === "principal")?.cor,

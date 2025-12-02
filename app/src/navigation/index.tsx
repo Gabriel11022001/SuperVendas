@@ -2,6 +2,7 @@ import config from '@/app/config/config';
 import { Cor } from '@/app/config/typesConfig';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from '../views/Home';
 import Login from '../views/Login';
 import SplashScreen from '../views/SplashScreen';
 
@@ -33,6 +34,10 @@ const Navigation = () => {
       <Stack.Screen name="login" component={ Login } options={ {
         title: "Login",
         headerBackVisible: false
+      } } />
+      { /** tela home do app */ }
+      <Stack.Screen name="home" component={ Home } options={ {
+        title: "Home"
       } } />
     </Stack.Navigator>
   </NavigationContainer>

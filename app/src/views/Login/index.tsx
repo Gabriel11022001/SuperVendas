@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Image, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Loader from "../../components/Loader";
 import Tela from "../../components/Tela";
+import UsuarioLogin from "../../types/usuario";
 import styles from "./styles";
 
 const Login = ({ navigation }: any) => {
@@ -38,9 +39,32 @@ const Login = ({ navigation }: any) => {
 
   }
 
+  // redirecionar o usuário para a tela home
+  const redirecionarHome = (usuarioLogado: UsuarioLogin): void => {
+    navigation.navigate("home"); 
+  }
+
   // implementar toda a lógica do login
   const login = async () => {
     // setLoader("Realizando autenticação no servidor, aguarde...");
+
+    try {
+      console.log("Efetuando o login...");
+
+      const usuarioLogin: UsuarioLogin = {
+        email: email.trim(),
+        senha: senha.trim()
+      }
+
+      //const respLogin = await efetuarLogin(usuarioLogin);
+
+      redirecionarHome(usuarioLogin);
+    } catch (e) {
+      // apresentar alerta de erro
+    } finally {
+
+    }
+
   }
 
   // redirecionar o usuário para a tela para recuperar a senha
@@ -64,7 +88,7 @@ const Login = ({ navigation }: any) => {
       style={ { flex: 1 } }
       behavior={ Platform.OS === "ios" ? "padding" : "height" }
       keyboardVerticalOffset={ 100 } >
-      <ScrollView style={ { flex: 1 } } showsVerticalScrollIndicator={ false }>
+      <ScrollView style={ { flex: 1 } } showsVerticalScrollIndicator={ false } >
         <View style={ styles.containerLogo }>
           <Image source={ require("../../../config/logos/logo.png") } style={ { width: 150, height: 150 } } />
         </View>

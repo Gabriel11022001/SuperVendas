@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginTop: 10,
     marginBottom: 10
+  },
+  containerOpcoesMenuHome: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center"
   }
 
 });

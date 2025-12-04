@@ -11,6 +11,8 @@ type OpcaoMenuHome = {
   titulo: string;
   icone: string;
   telaRedirecionar: string;
+  primeiro?: boolean;
+  ultimo?: boolean;
 
 }
 
@@ -27,11 +29,11 @@ const Home = ({ navigation }: any) => {
   const getOpcoesMenuHome = (): OpcaoMenuHome[] => {
     const opcoes: OpcaoMenuHome[] = [];
 
-    opcoes.push({ titulo: "Clientes", icone: "", telaRedirecionar: "clientes" });
-    opcoes.push({ titulo: "Produtos", icone: "", telaRedirecionar: "produtos" });
-    opcoes.push({ titulo: "Vendas", icone: "", telaRedirecionar: "vendas" });
-    opcoes.push({ titulo: "Nova Venda", icone: "", telaRedirecionar: "nova_venda" });
-    opcoes.push({ titulo: "Perfil", icone: "", telaRedirecionar: "perfil" });
+    opcoes.push({ titulo: "Clientes", icone: "person", telaRedirecionar: "clientes", primeiro: true });
+    opcoes.push({ titulo: "Produtos", icone: "product", telaRedirecionar: "produtos" });
+    opcoes.push({ titulo: "Vendas", icone: "money-bill-alt", telaRedirecionar: "vendas" });
+    opcoes.push({ titulo: "Nova Venda", icone: "money-bill-alt", telaRedirecionar: "nova_venda" });
+    opcoes.push({ titulo: "Perfil", icone: "person", telaRedirecionar: "perfil", ultimo: true });
 
     return opcoes;
   }
@@ -106,6 +108,20 @@ const Home = ({ navigation }: any) => {
         <Text style={ styles.txtBemVindo }>Olá { usuarioLogado != null ? usuarioLogado.nome : "---" }</Text>
         { /** dados estatísticos do app */ }
         { listarContainerDadosEstatisticos() }
+        <ScrollView horizontal={ true } showsHorizontalScrollIndicator={ false } style={ { marginStart: "5%", marginEnd: "5%" } } >
+          { opcoesMenuHome.map((opcaoMenuHome) => {
+          
+            return <OpcaoMenuHome 
+              titulo={ opcaoMenuHome.titulo } 
+              icone={ opcaoMenuHome.icone } 
+              telaRedirecionar={ opcaoMenuHome.telaRedirecionar } 
+              onRedirecionar={ () => {
+                redirecionar(opcaoMenuHome.telaRedirecionar);
+              } }
+              primeiro={ opcaoMenuHome.primeiro }
+              ultimo={ opcaoMenuHome.ultimo } />
+          }) }
+        </ScrollView>
       </ScrollView>
     </Tela>
   );

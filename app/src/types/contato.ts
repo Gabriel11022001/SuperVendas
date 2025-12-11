@@ -1,5 +1,6 @@
 type Contato = {
 
+  id: number;
   tipo: string;
   valorContato: string;
 

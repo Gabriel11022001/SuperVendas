@@ -1,7 +1,11 @@
 import config from '@/app/config/config';
 import { Cor } from '@/app/config/typesConfig';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { TouchableOpacity } from 'react-native';
+import CadastroCliente from '../views/CadastroCliente';
+import Clientes from '../views/Clientes';
 import Home from '../views/Home';
 import Login from '../views/Login';
 import SplashScreen from '../views/SplashScreen';
@@ -38,6 +42,26 @@ const Navigation = () => {
       { /** tela home do app */ }
       <Stack.Screen name="home" component={ Home } options={ {
         title: "Home"
+      } } />
+      { /** tela gestão de clientes */ }
+      <Stack.Screen name="clientes" component={ Clientes } options={ ({ navigation }) => {
+
+        return {
+          title: "Clientes",
+          headerRight: () => {
+            
+            // botão para redirecionar o usuário para a tela de cadastro de cliente
+            return <TouchableOpacity onPress={ () => {
+              navigation.navigate("cadastro_cliente");
+            } } >
+              <Ionicons name="add" size={ 30 } color="#fff" />
+            </TouchableOpacity>
+          }
+        }; 
+      } } />
+      { /** tela de cadastro de cliente */ }
+      <Stack.Screen name="cadastro_cliente" component={ CadastroCliente } options={ {
+        title: "Cadastro de Cliente"
       } } />
     </Stack.Navigator>
   </NavigationContainer>

@@ -56,7 +56,7 @@ const Home = ({ navigation }: any) => {
   }
 
   const redirecionar = (tela: string): void => {
-
+    navigation.navigate(tela);
   }
 
   const buscarDadosEstatisticos = async () => {

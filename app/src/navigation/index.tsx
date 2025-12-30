@@ -5,9 +5,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TouchableOpacity } from 'react-native';
 import CadastroCliente from '../views/CadastroCliente';
+import CadastroProduto from '../views/CadastroProduto';
 import Clientes from '../views/Clientes';
 import Home from '../views/Home';
 import Login from '../views/Login';
+import Produtos from '../views/Produtos';
 import SplashScreen from '../views/SplashScreen';
 
 const Stack = createNativeStackNavigator();
@@ -62,6 +64,26 @@ const Navigation = () => {
       { /** tela de cadastro de cliente */ }
       <Stack.Screen name="cadastro_cliente" component={ CadastroCliente } options={ {
         title: "Cadastro de Cliente"
+      } } />
+      { /** tela gestão de produtos */ }
+      <Stack.Screen name="produtos" component={ Produtos } options={ ({ navigation }) => {
+
+        return {
+          title: "Produtos",
+          headerRight: () => {
+            
+            // botão para redirecionar o usuário para a tela de cadastro de produto
+            return <TouchableOpacity onPress={ () => {
+              navigation.navigate("cadastro_produto");
+            } } >
+              <Ionicons name="add" size={ 30 } color="#fff" />
+            </TouchableOpacity>
+          }
+        }; 
+      } } />
+      { /** tela de cadastro de produto */ }
+      <Stack.Screen name="cadastro_produto" component={ CadastroProduto } options={ {
+        title: "Cadastro de Produto"
       } } />
     </Stack.Navigator>
   </NavigationContainer>

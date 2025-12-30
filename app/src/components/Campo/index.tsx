@@ -8,7 +8,9 @@ export enum TipoCampo {
   cpf,
   dataNascimento,
   cep,
-  telefone
+  telefone,
+  dinheiro,
+  numero
 
 }
 
@@ -59,6 +61,10 @@ const Campo = ({
     if (tipoCampo === TipoCampo.telefone) {
 
       return "";
+    }
+
+    if (tipoCampo === TipoCampo.dinheiro) {
+
     }
 
     return "";

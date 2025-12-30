@@ -221,7 +221,7 @@ const CadastroCliente = ({ navigation, route }: any) => {
           if (tipoContatoAtual === "telefone") {
 
           } else {
-              
+            
           }
 
         }
